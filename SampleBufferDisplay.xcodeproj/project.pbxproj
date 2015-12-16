@@ -16,6 +16,7 @@
 		DB2A00321C213D59006D9684 /* SampleBufferDisplayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2A00311C213D59006D9684 /* SampleBufferDisplayTests.m */; };
 		DB2A003D1C213D59006D9684 /* SampleBufferDisplayUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2A003C1C213D59006D9684 /* SampleBufferDisplayUITests.m */; };
 		DB2A004D1C213FCA006D9684 /* VideoCapturer.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2A004C1C213FCA006D9684 /* VideoCapturer.m */; };
+		DB2A00511C216E0E006D9684 /* H264Encoder.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2A00501C216E0E006D9684 /* H264Encoder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		DB2A004B1C213FCA006D9684 /* VideoCapturer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCapturer.h; sourceTree = "<group>"; };
 		DB2A004C1C213FCA006D9684 /* VideoCapturer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCapturer.m; sourceTree = "<group>"; };
 		DB2A004E1C2144F8006D9684 /* SampleBuffer.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleBuffer.pch; sourceTree = "<group>"; };
+		DB2A004F1C216E0E006D9684 /* H264Encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = H264Encoder.h; sourceTree = "<group>"; };
+		DB2A00501C216E0E006D9684 /* H264Encoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = H264Encoder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +154,8 @@
 			children = (
 				DB2A004B1C213FCA006D9684 /* VideoCapturer.h */,
 				DB2A004C1C213FCA006D9684 /* VideoCapturer.m */,
+				DB2A004F1C216E0E006D9684 /* H264Encoder.h */,
+				DB2A00501C216E0E006D9684 /* H264Encoder.m */,
 			);
 			path = Helper;
 			sourceTree = SOURCE_ROOT;
@@ -289,6 +294,7 @@
 				DB2A001C1C213D58006D9684 /* AppDelegate.m in Sources */,
 				DB2A00191C213D58006D9684 /* main.m in Sources */,
 				DB2A004D1C213FCA006D9684 /* VideoCapturer.m in Sources */,
+				DB2A00511C216E0E006D9684 /* H264Encoder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
