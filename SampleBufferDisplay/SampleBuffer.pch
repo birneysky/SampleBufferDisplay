@@ -1,0 +1,22 @@
+//
+//  SampleBuffer.pch
+//  SampleBufferDisplay
+//
+//  Created by zhangguang on 15/12/16.
+//  Copyright © 2015年 com.v2tech. All rights reserved.
+//
+
+#ifndef SampleBuffer_pch
+#define SampleBuffer_pch
+
+#ifdef DEBUG
+
+#define DebugLog(fmt,...)  NSLog(@" %s %d "fmt,__FUNCTION__,__LINE__,__VA_ARGS__)
+
+#else
+
+#define DebugLog(fmt,...)
+
+#endif
+
+#endif /* SampleBuffer_pch */

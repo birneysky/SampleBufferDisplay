@@ -15,6 +15,7 @@
 		DB2A00271C213D59006D9684 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB2A00251C213D59006D9684 /* LaunchScreen.storyboard */; };
 		DB2A00321C213D59006D9684 /* SampleBufferDisplayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2A00311C213D59006D9684 /* SampleBufferDisplayTests.m */; };
 		DB2A003D1C213D59006D9684 /* SampleBufferDisplayUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2A003C1C213D59006D9684 /* SampleBufferDisplayUITests.m */; };
+		DB2A004D1C213FCA006D9684 /* VideoCapturer.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2A004C1C213FCA006D9684 /* VideoCapturer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,9 @@
 		DB2A00381C213D59006D9684 /* SampleBufferDisplayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SampleBufferDisplayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB2A003C1C213D59006D9684 /* SampleBufferDisplayUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleBufferDisplayUITests.m; sourceTree = "<group>"; };
 		DB2A003E1C213D59006D9684 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB2A004B1C213FCA006D9684 /* VideoCapturer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCapturer.h; sourceTree = "<group>"; };
+		DB2A004C1C213FCA006D9684 /* VideoCapturer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCapturer.m; sourceTree = "<group>"; };
+		DB2A004E1C2144F8006D9684 /* SampleBuffer.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleBuffer.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,13 +105,11 @@
 		DB2A00161C213D58006D9684 /* SampleBufferDisplay */ = {
 			isa = PBXGroup;
 			children = (
-				DB2A001A1C213D58006D9684 /* AppDelegate.h */,
-				DB2A001B1C213D58006D9684 /* AppDelegate.m */,
+				DB2A004A1C213FA4006D9684 /* Helper */,
 				DB2A001D1C213D58006D9684 /* ViewController.h */,
 				DB2A001E1C213D58006D9684 /* ViewController.m */,
 				DB2A00201C213D58006D9684 /* Main.storyboard */,
 				DB2A00231C213D59006D9684 /* Assets.xcassets */,
-				DB2A00251C213D59006D9684 /* LaunchScreen.storyboard */,
 				DB2A00281C213D59006D9684 /* Info.plist */,
 				DB2A00171C213D58006D9684 /* Supporting Files */,
 			);
@@ -117,7 +119,11 @@
 		DB2A00171C213D58006D9684 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DB2A001A1C213D58006D9684 /* AppDelegate.h */,
+				DB2A001B1C213D58006D9684 /* AppDelegate.m */,
 				DB2A00181C213D58006D9684 /* main.m */,
+				DB2A00251C213D59006D9684 /* LaunchScreen.storyboard */,
+				DB2A004E1C2144F8006D9684 /* SampleBuffer.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -139,6 +145,15 @@
 			);
 			path = SampleBufferDisplayUITests;
 			sourceTree = "<group>";
+		};
+		DB2A004A1C213FA4006D9684 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				DB2A004B1C213FCA006D9684 /* VideoCapturer.h */,
+				DB2A004C1C213FCA006D9684 /* VideoCapturer.m */,
+			);
+			path = Helper;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -273,6 +288,7 @@
 				DB2A001F1C213D58006D9684 /* ViewController.m in Sources */,
 				DB2A001C1C213D58006D9684 /* AppDelegate.m in Sources */,
 				DB2A00191C213D58006D9684 /* main.m in Sources */,
+				DB2A004D1C213FCA006D9684 /* VideoCapturer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +429,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = SampleBufferDisplay/SampleBuffer.pch;
 				INFOPLIST_FILE = SampleBufferDisplay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -425,6 +442,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = SampleBufferDisplay/SampleBuffer.pch;
 				INFOPLIST_FILE = SampleBufferDisplay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
