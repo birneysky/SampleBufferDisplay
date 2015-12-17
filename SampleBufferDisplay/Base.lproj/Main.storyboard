@@ -26,6 +26,9 @@
                                 <items>
                                     <barButtonItem title="◉" id="wjh-9L-IPb">
                                         <color key="tintColor" red="0.21193406649999999" green="0.77261078039999997" blue="0.3453101516" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="leftBottomItemClicked:" destination="BYZ-38-t0r" id="fPF-Ad-4cW"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="lhb-PC-719"/>
                                     <barButtonItem style="plain" id="Sk1-dA-lEt">

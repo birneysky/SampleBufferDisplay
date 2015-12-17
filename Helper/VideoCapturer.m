@@ -48,7 +48,7 @@
 - (AVCaptureVideoPreviewLayer*)previewLayer
 {
     if (!_previewLayer) {
-        _previewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.session];
+        _previewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSessionWithNoConnection:self.session];
         _previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
         _previewLayer.backgroundColor = [UIColor blackColor].CGColor;
     }
@@ -72,6 +72,7 @@
     return self;
 }
 
+#pragma mark - *** Control ***
 - (BOOL)start
 {
     if (self.sessionPreset.length <= 0) {
@@ -99,11 +100,12 @@
     }
     
     AVCaptureConnection* connection =[dataOutput connectionWithMediaType:AVMediaTypeVideo];
-    if ([captureDevice.activeFormat isVideoStabilizationModeSupported:AVCaptureVideoStabilizationModeCinematic]) {
-        [connection setPreferredVideoStabilizationMode:AVCaptureVideoStabilizationModeCinematic];
-    }else if([captureDevice.activeFormat isVideoStabilizationModeSupported:AVCaptureVideoStabilizationModeAuto]){
-        [connection setPreferredVideoStabilizationMode:AVCaptureVideoStabilizationModeAuto];
-    }
+    connection.videoOrientation = AVCaptureVideoOrientationLandscapeRight;
+//    if ([captureDevice.activeFormat isVideoStabilizationModeSupported:AVCaptureVideoStabilizationModeCinematic]) {
+//        [connection setPreferredVideoStabilizationMode:AVCaptureVideoStabilizationModeCinematic];
+//    }else if([captureDevice.activeFormat isVideoStabilizationModeSupported:AVCaptureVideoStabilizationModeAuto]){
+//        [connection setPreferredVideoStabilizationMode:AVCaptureVideoStabilizationModeAuto];
+//    }
     connection.videoMirrored = YES;
     
     [self.session startRunning];
@@ -120,6 +122,7 @@
 - (void)startSend
 {
     dispatch_async(self.dataOutputQueue, ^{
+         [self.encoder startWithSize:[self CaptureSize]];
         self.isSend = YES;
     });
 }
@@ -127,10 +130,29 @@
 - (void)stopSend
 {
     dispatch_async(self.dataOutputQueue, ^{
+        [self.encoder stop];
         self.isSend = NO;
     });
 }
 
+- (CGSize)CaptureSize
+{
+    if ([self.sessionPreset isEqualToString:AVCaptureSessionPresetLow]) {
+        return CGSizeMake(192, 144);
+    }
+    else if ([self.sessionPreset isEqualToString:AVCaptureSessionPreset352x288]){
+        return CGSizeMake(352, 288);
+    }
+    else if ([self.sessionPreset isEqualToString:AVCaptureSessionPreset640x480]){
+        return CGSizeMake(640, 480);
+    }
+    else if ([self.sessionPreset isEqualToString:AVCaptureSessionPresetiFrame1280x720]){
+        return CGSizeMake(1280, 720);
+    }else{
+        DebugLog(@"capture size not support preset = %@",self.sessionPreset);
+        return CGSizeZero;
+    }
+}
 
 #pragma mark - *** AVCaptureVideoDataOutputSampleBufferDelegate *** 
 
@@ -138,7 +160,7 @@
 {
     
     if (self.isSend) {
-       DebugLog(@"sampleBuffer %p",sampleBuffer);
+       //DebugLog(@"sampleBuffer %p",sampleBuffer);
         [self.encoder encode:sampleBuffer];
     }
 }

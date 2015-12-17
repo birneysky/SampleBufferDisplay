@@ -10,7 +10,7 @@
 #import "VideoCapturer.h"
 #import "CPUReporter.h"
 
-@interface ViewController ()
+@interface ViewController ()<h264EncoderDelegate>
 
 @property (nonatomic,strong) VideoCapturer* capture;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *resolutionSegment;
@@ -18,6 +18,8 @@
 @property (nonatomic,strong) CPUReporter* reporter;
 
 @property (weak, nonatomic) IBOutlet UILabel *cpuUseageLabel;
+
+@property (nonatomic,strong) AVSampleBufferDisplayLayer* sampleLayer;
 @end
 
 @implementation ViewController
@@ -28,7 +30,7 @@
 - (VideoCapturer*)capture
 {
     if (!_capture) {
-        _capture = [[VideoCapturer alloc] initWithSessionPreset:AVCaptureSessionPresetLow];
+        _capture = [[VideoCapturer alloc] initWithSessionPreset:AVCaptureSessionPreset352x288];
     }
     return _capture;
 }
@@ -43,13 +45,29 @@
     return _reporter;
 }
 
+- (AVSampleBufferDisplayLayer*)sampleLayer
+{
+    if (!_sampleLayer) {
+        _sampleLayer = [[AVSampleBufferDisplayLayer alloc] init];
+        _sampleLayer.videoGravity = AVLayerVideoGravityResizeAspect;
+        _sampleLayer.backgroundColor = [UIColor blackColor].CGColor;
+    }
+    return _sampleLayer;
+}
+
 #pragma mark - *** Init View ***
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    DebugLog(@"previewlayer %p",self.capture.previewLayer);
+    self.capture.previewLayer.frame = CGRectMake(20, 70, 352, 288);
+    [self.view.layer addSublayer:self.capture.previewLayer];
     
+    CGRect rect = self.capture.previewLayer.frame;
+    self.sampleLayer.frame = CGRectMake(100, rect.origin.y + rect.size.height + 10, 352, 288);
+    [self.view.layer addSublayer:self.sampleLayer];
+    self.sampleLayer.transform=CATransform3DMakeRotation(M_PI/2, 0, 0, 1);
+    self.capture.encoder.delegate = self;
 }
 
 
@@ -74,17 +92,16 @@
 #pragma mark - *** Helper ***
 - (void)showPreview
 {
-    self.capture.previewLayer.frame = CGRectMake(0, 70, 320, 240);
-    [self.view.layer addSublayer:self.capture.previewLayer];
     [self.capture start];
     [self.reporter start];
 }
 
 - (void)dismissPreview
 {
-    [self.capture.previewLayer removeFromSuperlayer];
+    //[self.capture.previewLayer removeFromSuperlayer];
     [self.capture stop];
 }
+
 
 #pragma mark - *** Target Action ***
 
@@ -106,5 +123,22 @@
 }
 
 
+- (IBAction)leftBottomItemClicked:(UIBarButtonItem *)sender {
+    if ([sender.title isEqualToString:@"◉"]) {
+        [self.capture startSend];
+        sender.tintColor = [UIColor redColor];
+        sender.title = @"⦿";
+    }else{
+        [self.capture stopSend];
+        sender.tintColor = [UIColor greenColor];
+        sender.title = @"◉";
+    }
+}
+
+#pragma mark - *** h264EncoderDelegate ***
+- (void)didEncodeSampleBuffer:(CMSampleBufferRef)sampleBuffer
+{
+    [self.sampleLayer enqueueSampleBuffer:sampleBuffer];
+}
 
 @end
