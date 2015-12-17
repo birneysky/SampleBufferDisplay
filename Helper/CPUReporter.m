@@ -108,8 +108,6 @@ float cpu_usage()
 - (void)start
 {
     self.timer.fireDate = [NSDate date];
-    [self.timer fire];
-
 }
 
 - (void)stop

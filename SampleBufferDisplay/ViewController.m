@@ -10,8 +10,6 @@
 #import "VideoCapturer.h"
 #import "CPUReporter.h"
 
-
-
 @interface ViewController ()
 
 @property (nonatomic,strong) VideoCapturer* capture;

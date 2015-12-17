@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
+#import "H264Encoder.h"
 
 
 @protocol h264EncoderDelegate <NSObject>
@@ -23,9 +24,12 @@
 
 @interface H264Encoder : NSObject
 
+
 @property (nonatomic,assign) id <h264EncoderDelegate> delegate;
 
 - (void)startWithSize:(CGSize) videoSize;
+
+- (BOOL)encode:(CMSampleBufferRef)sampleBuffer;
 
 - (void)stop;
 

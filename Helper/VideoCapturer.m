@@ -16,9 +16,11 @@
 
 @property (nonatomic,strong) dispatch_queue_t dataOutputQueue;
 
-@property (nonatomic,strong) dispatch_queue_t dataEncodeQueue;
-
 @property (nonatomic,strong) AVCaptureVideoPreviewLayer* previewLayer;
+
+@property (nonatomic,assign) BOOL isSend;
+
+@property (nonatomic,strong) H264Encoder* encoder;
 
 @end
 
@@ -28,19 +30,12 @@
 
 - (dispatch_queue_t)dataOutputQueue
 {
-    if (!_dataEncodeQueue) {
-        _dataEncodeQueue = dispatch_queue_create("com.video.output", 0);
+    if (!_dataOutputQueue) {
+        _dataOutputQueue = dispatch_queue_create("com.video.output", 0);
     }
-    return _dataEncodeQueue;
+    return _dataOutputQueue;
 }
 
-- (dispatch_queue_t)dataEncodeQueue
-{
-    if (!_dataEncodeQueue) {
-        _dataEncodeQueue = dispatch_queue_create("com.video.Encode", 0);
-    }
-    return _dataEncodeQueue;
-}
 
 - (AVCaptureSession*)session
 {
@@ -58,6 +53,14 @@
         _previewLayer.backgroundColor = [UIColor blackColor].CGColor;
     }
     return _previewLayer;
+}
+
+- (H264Encoder*)encoder
+{
+    if (!_encoder) {
+        _encoder = [[H264Encoder alloc] init];
+    }
+    return _encoder;
 }
 
 #pragma mark - *** Initializers ***
@@ -114,11 +117,30 @@
 }
 
 
+- (void)startSend
+{
+    dispatch_async(self.dataOutputQueue, ^{
+        self.isSend = YES;
+    });
+}
+
+- (void)stopSend
+{
+    dispatch_async(self.dataOutputQueue, ^{
+        self.isSend = NO;
+    });
+}
+
+
 #pragma mark - *** AVCaptureVideoDataOutputSampleBufferDelegate *** 
 
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection
 {
-    //DebugLog(@"sampleBuffer %p",sampleBuffer);
+    
+    if (self.isSend) {
+       DebugLog(@"sampleBuffer %p",sampleBuffer);
+        [self.encoder encode:sampleBuffer];
+    }
 }
 
 @end

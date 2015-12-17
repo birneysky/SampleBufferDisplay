@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import "H264Encoder.h"
 
 @interface VideoCapturer : NSObject
+
+@property (nonatomic,readonly) H264Encoder* encoder;
 
 @property (nonatomic,readonly) AVCaptureVideoPreviewLayer* previewLayer;
 
@@ -18,5 +21,9 @@
 - (BOOL)start;
 
 - (BOOL)stop;
+
+- (void)startSend;
+
+- (void)stopSend;
 
 @end
