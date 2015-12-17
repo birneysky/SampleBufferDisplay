@@ -25,9 +25,8 @@
 
 @property (nonatomic,assign) id <h264EncoderDelegate> delegate;
 
--(instancetype)initWithWidht:(CGFloat)widht height:(CGFloat)height;
+- (void)startWithSize:(CGSize) videoSize;
 
-- (void)start;
 - (void)stop;
 
 

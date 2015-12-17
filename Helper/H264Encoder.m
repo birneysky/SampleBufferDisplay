@@ -10,4 +10,14 @@
 
 @implementation H264Encoder
 
+- (void)startWithSize:(CGSize) videoSize
+{
+    
+}
+
+- (void)stop
+{
+    
+}
+
 @end
