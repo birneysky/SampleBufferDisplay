@@ -18,7 +18,6 @@
 		DB2A004D1C213FCA006D9684 /* VideoCapturer.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2A004C1C213FCA006D9684 /* VideoCapturer.m */; };
 		DB2A00511C216E0E006D9684 /* H264Encoder.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2A00501C216E0E006D9684 /* H264Encoder.m */; };
 		DB5BB65A1C2282A900BBDC9E /* CPUReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5BB6591C2282A900BBDC9E /* CPUReporter.m */; };
-		DBC8BAB01C229D1F00021069 /* test.m in Sources */ = {isa = PBXBuildFile; fileRef = DBC8BAAF1C229D1F00021069 /* test.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,8 +61,6 @@
 		DB2A00501C216E0E006D9684 /* H264Encoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = H264Encoder.m; sourceTree = "<group>"; };
 		DB5BB6581C2282A900BBDC9E /* CPUReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPUReporter.h; sourceTree = "<group>"; };
 		DB5BB6591C2282A900BBDC9E /* CPUReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPUReporter.m; sourceTree = "<group>"; };
-		DBC8BAAE1C229D1F00021069 /* test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
-		DBC8BAAF1C229D1F00021069 /* test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = test.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,8 +161,6 @@
 				DB2A00501C216E0E006D9684 /* H264Encoder.m */,
 				DB5BB6581C2282A900BBDC9E /* CPUReporter.h */,
 				DB5BB6591C2282A900BBDC9E /* CPUReporter.m */,
-				DBC8BAAE1C229D1F00021069 /* test.h */,
-				DBC8BAAF1C229D1F00021069 /* test.m */,
 			);
 			path = Helper;
 			sourceTree = SOURCE_ROOT;
@@ -300,7 +295,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBC8BAB01C229D1F00021069 /* test.m in Sources */,
 				DB2A001F1C213D58006D9684 /* ViewController.m in Sources */,
 				DB2A001C1C213D58006D9684 /* AppDelegate.m in Sources */,
 				DB2A00191C213D58006D9684 /* main.m in Sources */,
