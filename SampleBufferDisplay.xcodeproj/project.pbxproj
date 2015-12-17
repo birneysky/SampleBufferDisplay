@@ -17,6 +17,7 @@
 		DB2A003D1C213D59006D9684 /* SampleBufferDisplayUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2A003C1C213D59006D9684 /* SampleBufferDisplayUITests.m */; };
 		DB2A004D1C213FCA006D9684 /* VideoCapturer.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2A004C1C213FCA006D9684 /* VideoCapturer.m */; };
 		DB2A00511C216E0E006D9684 /* H264Encoder.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2A00501C216E0E006D9684 /* H264Encoder.m */; };
+		DB5BB65A1C2282A900BBDC9E /* CPUReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5BB6591C2282A900BBDC9E /* CPUReporter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		DB2A004E1C2144F8006D9684 /* SampleBuffer.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleBuffer.pch; sourceTree = "<group>"; };
 		DB2A004F1C216E0E006D9684 /* H264Encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = H264Encoder.h; sourceTree = "<group>"; };
 		DB2A00501C216E0E006D9684 /* H264Encoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = H264Encoder.m; sourceTree = "<group>"; };
+		DB5BB6581C2282A900BBDC9E /* CPUReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPUReporter.h; sourceTree = "<group>"; };
+		DB5BB6591C2282A900BBDC9E /* CPUReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPUReporter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +159,8 @@
 				DB2A004C1C213FCA006D9684 /* VideoCapturer.m */,
 				DB2A004F1C216E0E006D9684 /* H264Encoder.h */,
 				DB2A00501C216E0E006D9684 /* H264Encoder.m */,
+				DB5BB6581C2282A900BBDC9E /* CPUReporter.h */,
+				DB5BB6591C2282A900BBDC9E /* CPUReporter.m */,
 			);
 			path = Helper;
 			sourceTree = SOURCE_ROOT;
@@ -293,6 +298,7 @@
 				DB2A001F1C213D58006D9684 /* ViewController.m in Sources */,
 				DB2A001C1C213D58006D9684 /* AppDelegate.m in Sources */,
 				DB2A00191C213D58006D9684 /* main.m in Sources */,
+				DB5BB65A1C2282A900BBDC9E /* CPUReporter.m in Sources */,
 				DB2A004D1C213FCA006D9684 /* VideoCapturer.m in Sources */,
 				DB2A00511C216E0E006D9684 /* H264Encoder.m in Sources */,
 			);
