@@ -25,4 +25,10 @@
 
 @property (nonatomic,assign) id <h264EncoderDelegate> delegate;
 
+-(instancetype)initWithWidht:(CGFloat)widht height:(CGFloat)height;
+
+- (void)start;
+- (void)stop;
+
+
 @end

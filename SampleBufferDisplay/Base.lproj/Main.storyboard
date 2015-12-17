@@ -18,13 +18,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="WlI-Nl-Lca"/>
+                        <barButtonItem title="Item" id="GYk-sf-orz"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="r1h-yB-XoE"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="POY-sV-w9j">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" title="开始" id="hpt-M7-e79">
                             <connections>
                                 <action selector="leftButtomItemClicked:" destination="BYZ-38-t0r" id="K8G-vj-AqN"/>
                             </connections>
                         </barButtonItem>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="fEQ-ZM-8O3">
+                            <rect key="frame" x="151" y="6" width="299" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="low"/>
+                                <segment title="320*240"/>
+                                <segment title="640*480"/>
+                                <segment title="1280*720"/>
+                            </segments>
+                            <connections>
+                                <action selector="SegmentedControlClicked:" destination="BYZ-38-t0r" eventType="valueChanged" id="3a6-Ko-GGM"/>
+                            </connections>
+                        </segmentedControl>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="9qj-0R-2dJ">
+                            <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="EsF-OD-xcP">
+                                <rect key="frame" x="531" y="6" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="resolutionSegment" destination="fEQ-ZM-8O3" id="g6e-ah-AEv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -33,13 +61,17 @@
         <!--Navigation Controller-->
         <scene sceneID="rHQ-2j-Ps0">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fqo-Cb-Pbb" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="Fqo-Cb-Pbb" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="UGo-nt-Fhg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="xCE-7i-DUb">
+                        <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="gDA-Sf-01I"/>
                     </connections>

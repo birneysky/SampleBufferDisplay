@@ -101,6 +101,7 @@
     }else if([captureDevice.activeFormat isVideoStabilizationModeSupported:AVCaptureVideoStabilizationModeAuto]){
         [connection setPreferredVideoStabilizationMode:AVCaptureVideoStabilizationModeAuto];
     }
+    connection.videoMirrored = YES;
     
     [self.session startRunning];
     return YES;

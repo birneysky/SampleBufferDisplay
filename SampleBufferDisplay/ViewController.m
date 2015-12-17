@@ -8,11 +8,21 @@
 
 #import "ViewController.h"
 #import "VideoCapturer.h"
+#import<CoreFoundation/CFArray.h>
+
+//#import<IOKit/IOKitLib.h>
+
+//#import<IOKit/pwr_mgt/IOPMLibDefs.h>
+
+//#import<IOKit/pwr_mgt/IOPMKeys.h>
+
+#import<Availability.h>
 
 
 @interface ViewController ()
 
 @property (nonatomic,strong) VideoCapturer* capture;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *resolutionSegment;
 
 @end
 
@@ -24,7 +34,7 @@
 - (VideoCapturer*)capture
 {
     if (!_capture) {
-        _capture = [[VideoCapturer alloc] initWithSessionPreset:AVCaptureSessionPreset640x480];
+        _capture = [[VideoCapturer alloc] initWithSessionPreset:AVCaptureSessionPresetLow];
     }
     return _capture;
 }
@@ -84,5 +94,11 @@
         sender.title = @"开始";
     }
     
+}
+- (IBAction)SegmentedControlClicked:(UISegmentedControl *)sender {
+    
+    DebugLog(@" select index %d, title",sender.selectedSegmentIndex,[sender titleForSegmentAtIndex:sender.selectedSegmentIndex]);
+    
+    IOPMCopyCPUPowerStatus(NULL);
 }
 @end
