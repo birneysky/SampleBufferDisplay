@@ -107,6 +107,8 @@
 {
     //[self.capture start];
     //[self.reporter start];
+    [self.sampleLayer performSelector:@selector(flush) withObject:nil afterDelay:2];
+    //[self.sampleLayer flush];
     [self.capture startSend];
 }
 
@@ -115,6 +117,7 @@
     //[self.capture.previewLayer removeFromSuperlayer];
     //[self.capture stop];
     [self.capture stopSend];
+    
 }
 
 
