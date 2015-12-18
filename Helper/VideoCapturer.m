@@ -101,13 +101,13 @@
     
     AVCaptureConnection* connection =[dataOutput connectionWithMediaType:AVMediaTypeVideo];
     connection.videoOrientation = AVCaptureVideoOrientationLandscapeRight;
-//    if ([captureDevice.activeFormat isVideoStabilizationModeSupported:AVCaptureVideoStabilizationModeCinematic]) {
-//        [connection setPreferredVideoStabilizationMode:AVCaptureVideoStabilizationModeCinematic];
-//    }else if([captureDevice.activeFormat isVideoStabilizationModeSupported:AVCaptureVideoStabilizationModeAuto]){
-//        [connection setPreferredVideoStabilizationMode:AVCaptureVideoStabilizationModeAuto];
-//    }
-    connection.videoMirrored = YES;
-    
+    if ([captureDevice.activeFormat isVideoStabilizationModeSupported:AVCaptureVideoStabilizationModeCinematic]) {
+        [connection setPreferredVideoStabilizationMode:AVCaptureVideoStabilizationModeCinematic];
+    }else if([captureDevice.activeFormat isVideoStabilizationModeSupported:AVCaptureVideoStabilizationModeAuto]){
+        [connection setPreferredVideoStabilizationMode:AVCaptureVideoStabilizationModeAuto];
+    }
+    //connection.videoMirrored = YES;
+    self.session.sessionPreset = self.sessionPreset;
     [self.session startRunning];
     return YES;
 }
@@ -161,7 +161,9 @@
     
     if (self.isSend) {
        //DebugLog(@"sampleBuffer %p",sampleBuffer);
+
         [self.encoder encode:sampleBuffer];
+
     }
 }
 

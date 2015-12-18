@@ -23,13 +23,7 @@
 }
 
 #pragma mark - *** Property ***
-//- (dispatch_queue_t)dataEncodeQueue
-//{
-//    if (!_dataEncodeQueue) {
-//        _dataEncodeQueue = dispatch_queue_create("com.video.Encode", 0);
-//    }
-//    return _dataEncodeQueue;
-//}
+
 
 - (void)startWithSize:(CGSize) videoSize
 {
@@ -57,7 +51,7 @@
     CVPixelBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
     CMTime presentationTimeStamp = CMSampleBufferGetOutputPresentationTimeStamp(sampleBuffer);
     CMTime duration = CMSampleBufferGetOutputDuration(sampleBuffer);
-    status = VTCompressionSessionEncodeFrame(encodeSession, pixelBuffer, presentationTimeStamp, duration, NULL, pixelBuffer, NULL);
+    status = VTCompressionSessionEncodeFrame(encodeSession, pixelBuffer, presentationTimeStamp, duration, NULL, NULL, NULL);
 
     assert(status == noErr);
     return status == noErr;
@@ -84,10 +78,7 @@ void videoCompressionOutputCallback(
                                     CM_NULLABLE CMSampleBufferRef sampleBuffer )
 {
     
-    //DebugLog("samplebuffer %p, staus %ld",sampleBuffer,status);
-    //    NSLog(@"==> videoCompressionOutputCallback");
     H264Encoder* encoder = (__bridge H264Encoder *)outputCallbackRefCon;
-    //    [compressionSession encodePixelBufferCallbackWithSampleBuffer:sampleBuffer infoFlags:infoFlags];
     if ([encoder.delegate respondsToSelector:@selector(didEncodeSampleBuffer:)]) {
         [encoder.delegate didEncodeSampleBuffer:sampleBuffer];
     }
