@@ -94,10 +94,28 @@
             </objects>
             <point key="canvasLocation" x="1054" y="669"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--View Controller-->
+        <scene sceneID="i2i-hQ-lXZ">
+            <objects>
+                <viewController id="UmV-Xp-yig" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RBc-ue-GMb"/>
+                        <viewControllerLayoutGuide type="bottom" id="OQp-qE-CVR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="P4Z-LZ-OG6">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vLA-7K-7px" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1703" y="1460"/>
+        </scene>
+        <!--Root Navigation Controller-->
         <scene sceneID="rHQ-2j-Ps0">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fqo-Cb-Pbb" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fqo-Cb-Pbb" customClass="RootNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="UGo-nt-Fhg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

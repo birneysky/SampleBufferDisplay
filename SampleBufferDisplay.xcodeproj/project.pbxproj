@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB16487B1C24081600F79411 /* RootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB16487A1C24081600F79411 /* RootNavigationController.m */; };
 		DB2A00191C213D58006D9684 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2A00181C213D58006D9684 /* main.m */; };
 		DB2A001C1C213D58006D9684 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2A001B1C213D58006D9684 /* AppDelegate.m */; };
 		DB2A001F1C213D58006D9684 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2A001E1C213D58006D9684 /* ViewController.m */; };
@@ -119,6 +120,8 @@
 		DB1648751C23E04E00F79411 /* version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = version.h; sourceTree = "<group>"; };
 		DB1648771C23E04E00F79411 /* x264.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x264.h; sourceTree = "<group>"; };
 		DB1648781C23E04E00F79411 /* x264_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x264_config.h; sourceTree = "<group>"; };
+		DB1648791C24081600F79411 /* RootNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootNavigationController.h; sourceTree = "<group>"; };
+		DB16487A1C24081600F79411 /* RootNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootNavigationController.m; sourceTree = "<group>"; };
 		DB2A00141C213D58006D9684 /* SampleBufferDisplay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleBufferDisplay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB2A00181C213D58006D9684 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DB2A001A1C213D58006D9684 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -364,6 +367,8 @@
 				DB2A004A1C213FA4006D9684 /* Helper */,
 				DB2A001D1C213D58006D9684 /* ViewController.h */,
 				DB2A001E1C213D58006D9684 /* ViewController.m */,
+				DB1648791C24081600F79411 /* RootNavigationController.h */,
+				DB16487A1C24081600F79411 /* RootNavigationController.m */,
 				DB2A00201C213D58006D9684 /* Main.storyboard */,
 				DB2A00231C213D59006D9684 /* Assets.xcassets */,
 				DB2A00281C213D59006D9684 /* Info.plist */,
@@ -547,6 +552,7 @@
 			files = (
 				DB2A001F1C213D58006D9684 /* ViewController.m in Sources */,
 				DB2A001C1C213D58006D9684 /* AppDelegate.m in Sources */,
+				DB16487B1C24081600F79411 /* RootNavigationController.m in Sources */,
 				DB2A00191C213D58006D9684 /* main.m in Sources */,
 				DB5BB65A1C2282A900BBDC9E /* CPUReporter.m in Sources */,
 				DB2A004D1C213FCA006D9684 /* VideoCapturer.m in Sources */,

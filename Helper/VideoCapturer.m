@@ -122,7 +122,7 @@
 - (void)startSend
 {
     dispatch_async(self.dataOutputQueue, ^{
-         [self.encoder startWithSize:[self CaptureSize]];
+        [self.encoder startWithSize:[self CaptureSize]];
         self.isSend = YES;
     });
 }
@@ -161,7 +161,6 @@
     
     if (self.isSend) {
        //DebugLog(@"sampleBuffer %p",sampleBuffer);
-
         [self.encoder encode:sampleBuffer];
 
     }

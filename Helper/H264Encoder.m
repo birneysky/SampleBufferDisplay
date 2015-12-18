@@ -47,11 +47,11 @@
         return NO;
     }
     OSStatus status = 0;
-
+    VTEncodeInfoFlags flags;
     CVPixelBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
     CMTime presentationTimeStamp = CMSampleBufferGetOutputPresentationTimeStamp(sampleBuffer);
     CMTime duration = CMSampleBufferGetOutputDuration(sampleBuffer);
-    status = VTCompressionSessionEncodeFrame(encodeSession, pixelBuffer, presentationTimeStamp, duration, NULL, NULL, NULL);
+    status = VTCompressionSessionEncodeFrame(encodeSession, pixelBuffer, presentationTimeStamp, duration, NULL, NULL, &flags);
 
     assert(status == noErr);
     return status == noErr;
@@ -59,14 +59,14 @@
 
 - (void)stop
 {
-
-    VTCompressionSessionCompleteFrames(encodeSession, kCMTimeInvalid);
-    
-    // End the session
-    VTCompressionSessionInvalidate(encodeSession);
-    CFRelease(encodeSession);
-    encodeSession = NULL;
- 
+    if (NULL != encodeSession) {
+        VTCompressionSessionCompleteFrames(encodeSession, kCMTimeInvalid);
+        
+        // End the session
+        VTCompressionSessionInvalidate(encodeSession);
+        CFRelease(encodeSession);
+        encodeSession = NULL;
+    }
 }
 
 
