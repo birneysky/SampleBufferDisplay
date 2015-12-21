@@ -25,11 +25,21 @@
 
 @property (nonatomic,strong) NSInputStream* fileStream;
 
+@property (nonatomic,strong) NSMutableArray* array;
+
 @end
 
 const uint8_t KStartCode[4] = {0, 0, 0, 1};
 
 @implementation VideoFileParser
+
+-(NSMutableArray*)array
+{
+    if (!_array) {
+        _array = [[NSMutableArray alloc] init];
+    }
+    return _array;
+}
 
 -(void)open:(NSString*)fileName
 {
@@ -40,7 +50,11 @@ const uint8_t KStartCode[4] = {0, 0, 0, 1};
 
 -(VideoPacket *)nextPacket
 {
-    unsigned long long curOffset = 0;
+    NSData* startData = [self.fileHandeler readDataOfLength:4];
+    if(0 != memcmp(startData.bytes, KStartCode, 4)){
+        return nil;
+    }
+    unsigned long long curOffset = 4;
     unsigned long long endOffset = [self.fileHandeler seekToEndOfFile];
     unsigned long long prevStartOffet = 0;
     while (curOffset < endOffset) {
@@ -49,7 +63,8 @@ const uint8_t KStartCode[4] = {0, 0, 0, 1};
         if (0 == memcmp(tempData.bytes, KStartCode, 4)) {
             DebugLog(@"temp Data %@",tempData);
             [self.fileHandeler seekToFileOffset:prevStartOffet];
-            
+            NSData* data = [self.fileHandeler readDataOfLength:curOffset - prevStartOffet];
+            [self.array addObject:data];
             prevStartOffet = curOffset;
         }
         curOffset ++;
