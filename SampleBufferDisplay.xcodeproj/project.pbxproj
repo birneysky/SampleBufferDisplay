@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		74EE55FD1C282B31003C9F73 /* VideoFileParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 74EE55FC1C282B31003C9F73 /* VideoFileParser.m */; };
+		74EE56091C282C6A003C9F73 /* mtv.h264 in Resources */ = {isa = PBXBuildFile; fileRef = 74EE56061C282C6A003C9F73 /* mtv.h264 */; };
+		74EE560A1C282C6A003C9F73 /* test.h264 in Resources */ = {isa = PBXBuildFile; fileRef = 74EE56071C282C6A003C9F73 /* test.h264 */; };
+		74EE560B1C282C6A003C9F73 /* test10.h264 in Resources */ = {isa = PBXBuildFile; fileRef = 74EE56081C282C6A003C9F73 /* test10.h264 */; };
 		DB16487B1C24081600F79411 /* RootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB16487A1C24081600F79411 /* RootNavigationController.m */; };
 		DB2A00191C213D58006D9684 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2A00181C213D58006D9684 /* main.m */; };
 		DB2A001C1C213D58006D9684 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2A001B1C213D58006D9684 /* AppDelegate.m */; };
@@ -39,6 +43,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		74EE55FB1C282B31003C9F73 /* VideoFileParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoFileParser.h; sourceTree = "<group>"; };
+		74EE55FC1C282B31003C9F73 /* VideoFileParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoFileParser.m; sourceTree = "<group>"; };
+		74EE56061C282C6A003C9F73 /* mtv.h264 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mtv.h264; sourceTree = "<group>"; };
+		74EE56071C282C6A003C9F73 /* test.h264 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.h264; sourceTree = "<group>"; };
+		74EE56081C282C6A003C9F73 /* test10.h264 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test10.h264; sourceTree = "<group>"; };
 		DB1648201C23E04E00F79411 /* avcodec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = avcodec.h; sourceTree = "<group>"; };
 		DB1648211C23E04E00F79411 /* avfft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = avfft.h; sourceTree = "<group>"; };
 		DB1648221C23E04E00F79411 /* dxva2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dxva2.h; sourceTree = "<group>"; };
@@ -172,6 +181,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		74EE56051C282C6A003C9F73 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				74EE56061C282C6A003C9F73 /* mtv.h264 */,
+				74EE56071C282C6A003C9F73 /* test.h264 */,
+				74EE56081C282C6A003C9F73 /* test10.h264 */,
+			);
+			path = Resource;
+			sourceTree = SOURCE_ROOT;
+		};
 		DB16481D1C23E04E00F79411 /* VideoCodec */ = {
 			isa = PBXGroup;
 			children = (
@@ -363,6 +382,7 @@
 		DB2A00161C213D58006D9684 /* SampleBufferDisplay */ = {
 			isa = PBXGroup;
 			children = (
+				74EE56051C282C6A003C9F73 /* Resource */,
 				DB16481D1C23E04E00F79411 /* VideoCodec */,
 				DB2A004A1C213FA4006D9684 /* Helper */,
 				DB2A001D1C213D58006D9684 /* ViewController.h */,
@@ -416,6 +436,8 @@
 				DB2A00501C216E0E006D9684 /* H264Encoder.m */,
 				DB5BB6581C2282A900BBDC9E /* CPUReporter.h */,
 				DB5BB6591C2282A900BBDC9E /* CPUReporter.m */,
+				74EE55FB1C282B31003C9F73 /* VideoFileParser.h */,
+				74EE55FC1C282B31003C9F73 /* VideoFileParser.m */,
 			);
 			path = Helper;
 			sourceTree = SOURCE_ROOT;
@@ -524,7 +546,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB2A00271C213D59006D9684 /* LaunchScreen.storyboard in Resources */,
+				74EE56091C282C6A003C9F73 /* mtv.h264 in Resources */,
 				DB2A00241C213D59006D9684 /* Assets.xcassets in Resources */,
+				74EE560A1C282C6A003C9F73 /* test.h264 in Resources */,
+				74EE560B1C282C6A003C9F73 /* test10.h264 in Resources */,
 				DB2A00221C213D58006D9684 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -554,6 +579,7 @@
 				DB2A001C1C213D58006D9684 /* AppDelegate.m in Sources */,
 				DB16487B1C24081600F79411 /* RootNavigationController.m in Sources */,
 				DB2A00191C213D58006D9684 /* main.m in Sources */,
+				74EE55FD1C282B31003C9F73 /* VideoFileParser.m in Sources */,
 				DB5BB65A1C2282A900BBDC9E /* CPUReporter.m in Sources */,
 				DB2A004D1C213FCA006D9684 /* VideoCapturer.m in Sources */,
 				DB2A00511C216E0E006D9684 /* H264Encoder.m in Sources */,
@@ -703,6 +729,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yy.H264;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d2a4ac45-b3d7-483c-9965-b352d55724e7";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -716,6 +744,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yy.H264;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d2a4ac45-b3d7-483c-9965-b352d55724e7";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

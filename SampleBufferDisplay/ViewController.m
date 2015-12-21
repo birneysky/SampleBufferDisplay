@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "VideoCapturer.h"
 #import "CPUReporter.h"
+#import "VideoFileParser.h"
 
 @interface ViewController ()<h264EncoderDelegate>
 
@@ -61,11 +62,11 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     self.capture.previewLayer.frame = CGRectMake(20, 70, 352, 288);
-    [self.view.layer addSublayer:self.capture.previewLayer];
+    //[self.view.layer addSublayer:self.capture.previewLayer];
     
      //[[UIApplication sharedApplication].keyWindow addSubview:self.view];
     //[[UIApplication sharedApplication].keyWindow.layer addSublayer: self.capture.previewLayer];
-    [self.view removeFromSuperview];
+    //[self.view removeFromSuperview];
     
    
     
@@ -73,7 +74,7 @@
     //CGPoint center = self.capture.previewLayer
     self.sampleLayer.frame = CGRectMake(100, rect.origin.y + rect.size.height + 10, 288, 352);
     self.sampleLayer.transform = CATransform3DMakeRotation(M_PI / 2, 0, 0, 1);;
-    [self.view.layer addSublayer:self.sampleLayer];
+    //[self.view.layer addSublayer:self.sampleLayer];
     /*第一个参数是旋转角度，后面三个参数形成一个围绕其旋转的向量，起点位置由UIView的center属性标识。
      在这里需要说明的是在3D变换的时候，如果是变换的向量和屏幕垂直，那么就会相当于2D的旋转变化。如果不是垂直的，系统会现将整个画面调整到与这个向量垂直（没有动画），再进行旋转。所以会形成一个跳跃，破坏动画的连贯。
      所以如果有这类变换的情况请尽量考虑动画的连贯，现将view动画变换到和向量垂直，然后进行旋转，最后再恢复和屏幕平行。
@@ -81,6 +82,12 @@
     
     self.capture.encoder.delegate = self;
     [self.reporter start];
+    
+    
+    VideoFileParser* parese = [[VideoFileParser alloc] init];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"h264"];
+    [parese open:path];
+    [parese nextPacket];
 }
 
 
@@ -107,8 +114,8 @@
 {
     //[self.capture start];
     //[self.reporter start];
-    [self.sampleLayer performSelector:@selector(flush) withObject:nil afterDelay:2];
-    //[self.sampleLayer flush];
+    //[self.sampleLayer performSelector:@selector(flush) withObject:nil afterDelay:2];
+    [self.sampleLayer flushAndRemoveImage];
     [self.capture startSend];
 }
 
@@ -117,6 +124,7 @@
     //[self.capture.previewLayer removeFromSuperlayer];
     //[self.capture stop];
     [self.capture stopSend];
+
     
 }
 
@@ -177,7 +185,6 @@
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
-    
 }
 
 @end
