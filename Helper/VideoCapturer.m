@@ -162,7 +162,6 @@
     if (self.isSend) {
        //DebugLog(@"sampleBuffer %p",sampleBuffer);
         [self.encoder encode:sampleBuffer];
-
     }
 }
 
