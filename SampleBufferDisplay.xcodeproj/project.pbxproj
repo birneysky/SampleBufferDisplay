@@ -509,6 +509,7 @@
 				TargetAttributes = {
 					DB2A00131C213D58006D9684 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = M7R5TQ8AQY;
 					};
 					DB2A002C1C213D59006D9684 = {
 						CreatedOnToolsVersion = 7.2;
@@ -723,13 +724,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = SampleBufferDisplay/SampleBuffer.pch;
 				INFOPLIST_FILE = SampleBufferDisplay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yy.H264;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d2a4ac45-b3d7-483c-9965-b352d55724e7";
+				PROVISIONING_PROFILE = "02c4a2d7-c880-40d8-912a-e99287d346e5";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -738,13 +740,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = SampleBufferDisplay/SampleBuffer.pch;
 				INFOPLIST_FILE = SampleBufferDisplay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yy.H264;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d2a4ac45-b3d7-483c-9965-b352d55724e7";
+				PROVISIONING_PROFILE = "02c4a2d7-c880-40d8-912a-e99287d346e5";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
