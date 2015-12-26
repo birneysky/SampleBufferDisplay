@@ -55,6 +55,7 @@
     [super viewWillAppear:animated];
     
     self.willTransitionToPortrait = self.view.frame.size.height > self.view.frame.size.width;
+    //////
 }
 
 /*
