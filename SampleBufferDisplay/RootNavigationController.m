@@ -10,9 +10,35 @@
 
 @interface RootNavigationController ()
 
+@property (nonatomic,strong) UITraitCollection* traitCollection_wCompactHRegular;
+
+@property (nonatomic,strong) UITraitCollection* traitCollection_hAnyWAny;
+
+@property (nonatomic,assign) BOOL willTransitionToPortrait;
+
 @end
 
 @implementation RootNavigationController
+
+- (UITraitCollection*)traitCollection_hCompactWRegular
+{
+    if (!_traitCollection_wCompactHRegular) {
+        UITraitCollection* wCompact = [UITraitCollection traitCollectionWithHorizontalSizeClass:UIUserInterfaceSizeClassCompact];
+        UITraitCollection* hCompact = [UITraitCollection traitCollectionWithVerticalSizeClass:UIUserInterfaceSizeClassRegular];
+        _traitCollection_wCompactHRegular  =[UITraitCollection traitCollectionWithTraitsFromCollections:@[wCompact,hCompact]];
+    }
+    return _traitCollection_wCompactHRegular;
+}
+
+- (UITraitCollection*)traitCollection_hAnyWAny
+{
+    if (!_traitCollection_hAnyWAny) {
+        UITraitCollection* wAny = [UITraitCollection traitCollectionWithVerticalSizeClass:UIUserInterfaceSizeClassUnspecified];
+        UITraitCollection* hAny = [UITraitCollection traitCollectionWithHorizontalSizeClass:UIUserInterfaceSizeClassUnspecified];
+        _traitCollection_hAnyWAny = [UITraitCollection traitCollectionWithTraitsFromCollections:@[wAny,hAny]];
+    }
+    return _traitCollection_hAnyWAny;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,6 +48,13 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.willTransitionToPortrait = self.view.frame.size.height > self.view.frame.size.width;
 }
 
 /*
@@ -37,6 +70,17 @@
 - (BOOL)shouldAutorotate
 {
     return self.topViewController.shouldAutorotate;
+}
+
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
+{
+    self.willTransitionToPortrait = size.height > size.width;
+}
+
+- (UITraitCollection*)overrideTraitCollectionForChildViewController:(UIViewController *)childViewController
+{
+    UITraitCollection* overrideTraitConnection = self.willTransitionToPortrait ? self.traitCollection_hCompactWRegular : self.traitCollection_hAnyWAny;
+    return overrideTraitConnection;
 }
 
 @end

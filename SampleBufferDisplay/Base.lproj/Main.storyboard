@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Fqo-Cb-Pbb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Fqo-Cb-Pbb">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -33,7 +33,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="lhb-PC-719"/>
                                     <barButtonItem style="plain" id="Sk1-dA-lEt">
                                         <view key="customView" contentMode="scaleToFill" id="hnR-Jg-qzs">
-                                            <rect key="frame" x="180" y="6" width="240" height="33"/>
+                                            <rect key="frame" x="180" y="5.5" width="240" height="33"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y80-bs-oIk">
@@ -57,18 +57,12 @@
                             </toolbar>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TMY-kW-F3t">
                                 <rect key="frame" x="200" y="95" width="200" height="200"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="28" y="72" width="544" height="333"/>
                                 </variation>
                                 <variation key="widthClass=regular" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="28" y="72" width="367" height="476"/>
-                                </variation>
-                                <variation key="heightClass=compact-widthClass=regular" misplaced="YES">
-                                    <rect key="frame" x="118" y="100" width="200" height="200"/>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="28" y="72" width="744" height="333"/>
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uet-v1-P0l">
@@ -80,30 +74,33 @@
                                 <variation key="widthClass=regular" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="405" y="72" width="367" height="476"/>
                                 </variation>
-                                <variation key="heightClass=compact-widthClass=regular" misplaced="YES">
-                                    <rect key="frame" x="410" y="100" width="200" height="200"/>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="782" y="415" width="744" height="333"/>
-                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="NJj-Ea-KZ2" secondAttribute="trailing" constant="-20" id="2Wd-Zl-lj6"/>
+                            <constraint firstItem="uet-v1-P0l" firstAttribute="height" secondItem="TMY-kW-F3t" secondAttribute="height" id="5C4-Qh-eH2"/>
+                            <constraint firstItem="NJj-Ea-KZ2" firstAttribute="top" secondItem="uet-v1-P0l" secondAttribute="bottom" constant="8" id="5sM-qK-bHc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uet-v1-P0l" secondAttribute="trailing" constant="8" id="6W8-tx-PPI"/>
                             <constraint firstItem="uet-v1-P0l" firstAttribute="leading" secondItem="TMY-kW-F3t" secondAttribute="trailing" constant="10" id="9bf-bC-0Xl"/>
                             <constraint firstItem="uet-v1-P0l" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="AMl-Bc-kLH"/>
                             <constraint firstItem="TMY-kW-F3t" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Acs-DN-eJa"/>
                             <constraint firstItem="NJj-Ea-KZ2" firstAttribute="top" secondItem="uet-v1-P0l" secondAttribute="bottom" constant="8" id="Bfb-TW-V2b"/>
+                            <constraint firstItem="uet-v1-P0l" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="CTv-ff-GnB"/>
                             <constraint firstItem="TMY-kW-F3t" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="Gmj-f3-OoW"/>
+                            <constraint firstItem="TMY-kW-F3t" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="Lh5-0F-qTK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="uet-v1-P0l" secondAttribute="trailing" id="Sv9-SI-TNv"/>
                             <constraint firstItem="uet-v1-P0l" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="TUD-FL-npJ"/>
+                            <constraint firstItem="uet-v1-P0l" firstAttribute="leading" secondItem="TMY-kW-F3t" secondAttribute="trailing" constant="10" id="WcR-fL-eVF"/>
                             <constraint firstItem="NJj-Ea-KZ2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="X4a-fh-fFy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="uet-v1-P0l" secondAttribute="trailing" constant="8" id="Zk9-TZ-koP"/>
                             <constraint firstItem="uet-v1-P0l" firstAttribute="top" secondItem="TMY-kW-F3t" secondAttribute="bottom" constant="10" id="eOQ-RT-gC3"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="NJj-Ea-KZ2" secondAttribute="bottom" id="fZ7-lg-DEs"/>
                             <constraint firstItem="uet-v1-P0l" firstAttribute="width" secondItem="TMY-kW-F3t" secondAttribute="width" id="g0v-dp-Ys9"/>
                             <constraint firstItem="NJj-Ea-KZ2" firstAttribute="top" secondItem="uet-v1-P0l" secondAttribute="bottom" constant="8" id="hk5-hZ-U8B"/>
+                            <constraint firstItem="NJj-Ea-KZ2" firstAttribute="top" secondItem="TMY-kW-F3t" secondAttribute="bottom" constant="8" id="k47-Tk-ABD"/>
+                            <constraint firstItem="TMY-kW-F3t" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="kSL-mC-SMs"/>
+                            <constraint firstItem="uet-v1-P0l" firstAttribute="width" secondItem="TMY-kW-F3t" secondAttribute="width" id="l49-UL-BlH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TMY-kW-F3t" secondAttribute="trailing" constant="8" id="oJr-av-i0Y"/>
                             <constraint firstItem="uet-v1-P0l" firstAttribute="height" secondItem="TMY-kW-F3t" secondAttribute="height" id="osC-ud-0da"/>
                             <constraint firstItem="NJj-Ea-KZ2" firstAttribute="top" secondItem="TMY-kW-F3t" secondAttribute="bottom" constant="8" id="rFz-9K-C1v"/>
@@ -114,19 +111,28 @@
                             <mask key="constraints">
                                 <exclude reference="Acs-DN-eJa"/>
                                 <exclude reference="Gmj-f3-OoW"/>
+                                <exclude reference="Lh5-0F-qTK"/>
+                                <exclude reference="kSL-mC-SMs"/>
                                 <exclude reference="oJr-av-i0Y"/>
                                 <exclude reference="tKA-HZ-pmd"/>
                                 <exclude reference="vFD-aO-ylG"/>
+                                <exclude reference="5C4-Qh-eH2"/>
+                                <exclude reference="6W8-tx-PPI"/>
                                 <exclude reference="9bf-bC-0Xl"/>
                                 <exclude reference="AMl-Bc-kLH"/>
+                                <exclude reference="CTv-ff-GnB"/>
                                 <exclude reference="Sv9-SI-TNv"/>
                                 <exclude reference="TUD-FL-npJ"/>
+                                <exclude reference="WcR-fL-eVF"/>
                                 <exclude reference="Zk9-TZ-koP"/>
                                 <exclude reference="eOQ-RT-gC3"/>
                                 <exclude reference="g0v-dp-Ys9"/>
+                                <exclude reference="l49-UL-BlH"/>
                                 <exclude reference="osC-ud-0da"/>
+                                <exclude reference="5sM-qK-bHc"/>
                                 <exclude reference="Bfb-TW-V2b"/>
                                 <exclude reference="hk5-hZ-U8B"/>
+                                <exclude reference="k47-Tk-ABD"/>
                                 <exclude reference="rFz-9K-C1v"/>
                             </mask>
                         </variation>
@@ -154,6 +160,19 @@
                                 <include reference="hk5-hZ-U8B"/>
                             </mask>
                         </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="Lh5-0F-qTK"/>
+                                <include reference="kSL-mC-SMs"/>
+                                <include reference="5C4-Qh-eH2"/>
+                                <include reference="6W8-tx-PPI"/>
+                                <include reference="CTv-ff-GnB"/>
+                                <include reference="WcR-fL-eVF"/>
+                                <include reference="l49-UL-BlH"/>
+                                <include reference="5sM-qK-bHc"/>
+                                <include reference="k47-Tk-ABD"/>
+                            </mask>
+                        </variation>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="POY-sV-w9j">
@@ -164,7 +183,7 @@
                             </connections>
                         </barButtonItem>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="fEQ-ZM-8O3">
-                            <rect key="frame" x="151" y="6" width="299" height="33"/>
+                            <rect key="frame" x="150.5" y="5.5" width="299" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="low"/>

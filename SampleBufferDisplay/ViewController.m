@@ -24,6 +24,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *cpuUseageLabel;
 
 @property (nonatomic,strong) AVSampleBufferDisplayLayer* sampleLayer;
+
+
+
 @end
 
 @implementation ViewController
@@ -59,6 +62,8 @@
     return _sampleLayer;
 }
 
+
+
 #pragma mark - *** Init View ***
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -87,15 +92,15 @@
     [self.reporter start];
     
     
-    VideoFileParser* parese = [[VideoFileParser alloc] init];
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"h264"];
-    [parese open:path];
-    [parese nextPacket];
+//    VideoFileParser* parese = [[VideoFileParser alloc] init];
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"h264"];
+//    [parese open:path];
+//    [parese nextPacket];
     
     
-    Test* t = [[Test alloc] init];
-    TestA* ta = [[TestA alloc] init];
-    t.obj = ta;
+//    Test* t = [[Test alloc] init];
+//    TestA* ta = [[TestA alloc] init];
+//    t.obj = ta;
     
     
 }
@@ -107,6 +112,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dismissPreview) name:UIApplicationWillResignActiveNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showPreview) name:UIApplicationDidBecomeActiveNotification object:nil];
 }
+
+
 
 - (void)viewWillDisappear:(BOOL)animated
 {
@@ -178,23 +185,20 @@
 }
 
 
-- (BOOL)shouldAutorotate
-{
-    return YES;
-}
+//- (BOOL)shouldAutorotate
+//{
+//    return YES;
+//}
 
-- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
-{
-    
-}
 
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    
-}
-
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
-{
-}
+//
+//- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+//{
+//    
+//}
+//
+//- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+//{
+//}
 
 @end
