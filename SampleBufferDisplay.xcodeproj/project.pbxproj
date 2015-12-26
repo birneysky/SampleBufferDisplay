@@ -23,6 +23,9 @@
 		DB2A004D1C213FCA006D9684 /* VideoCapturer.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2A004C1C213FCA006D9684 /* VideoCapturer.m */; };
 		DB2A00511C216E0E006D9684 /* H264Encoder.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2A00501C216E0E006D9684 /* H264Encoder.m */; };
 		DB5BB65A1C2282A900BBDC9E /* CPUReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5BB6591C2282A900BBDC9E /* CPUReporter.m */; };
+		DBDFE10F1C2BE87000E6BA76 /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = DBDFE10E1C2BE87000E6BA76 /* Test.m */; };
+		DBDFE1141C2BE9C600E6BA76 /* TestA.m in Sources */ = {isa = PBXBuildFile; fileRef = DBDFE1131C2BE9C600E6BA76 /* TestA.m */; };
+		DBDFE1171C2BE9E800E6BA76 /* TestB.m in Sources */ = {isa = PBXBuildFile; fileRef = DBDFE1161C2BE9E800E6BA76 /* TestB.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +157,14 @@
 		DB2A00501C216E0E006D9684 /* H264Encoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = H264Encoder.m; sourceTree = "<group>"; };
 		DB5BB6581C2282A900BBDC9E /* CPUReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPUReporter.h; sourceTree = "<group>"; };
 		DB5BB6591C2282A900BBDC9E /* CPUReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPUReporter.m; sourceTree = "<group>"; };
+		DBDFE10B1C2BE7DA00E6BA76 /* A.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A.h; sourceTree = "<group>"; };
+		DBDFE10C1C2BE7E900E6BA76 /* B.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = B.h; sourceTree = "<group>"; };
+		DBDFE10D1C2BE87000E6BA76 /* Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
+		DBDFE10E1C2BE87000E6BA76 /* Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test.m; sourceTree = "<group>"; };
+		DBDFE1121C2BE9C600E6BA76 /* TestA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestA.h; sourceTree = "<group>"; };
+		DBDFE1131C2BE9C600E6BA76 /* TestA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestA.m; sourceTree = "<group>"; };
+		DBDFE1151C2BE9E800E6BA76 /* TestB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestB.h; sourceTree = "<group>"; };
+		DBDFE1161C2BE9E800E6BA76 /* TestB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestB.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -382,6 +393,7 @@
 		DB2A00161C213D58006D9684 /* SampleBufferDisplay */ = {
 			isa = PBXGroup;
 			children = (
+				DBDFE10A1C2BE7C300E6BA76 /* tt */,
 				74EE56051C282C6A003C9F73 /* Resource */,
 				DB16481D1C23E04E00F79411 /* VideoCodec */,
 				DB2A004A1C213FA4006D9684 /* Helper */,
@@ -440,6 +452,21 @@
 				74EE55FC1C282B31003C9F73 /* VideoFileParser.m */,
 			);
 			path = Helper;
+			sourceTree = SOURCE_ROOT;
+		};
+		DBDFE10A1C2BE7C300E6BA76 /* tt */ = {
+			isa = PBXGroup;
+			children = (
+				DBDFE10B1C2BE7DA00E6BA76 /* A.h */,
+				DBDFE10C1C2BE7E900E6BA76 /* B.h */,
+				DBDFE10D1C2BE87000E6BA76 /* Test.h */,
+				DBDFE10E1C2BE87000E6BA76 /* Test.m */,
+				DBDFE1121C2BE9C600E6BA76 /* TestA.h */,
+				DBDFE1131C2BE9C600E6BA76 /* TestA.m */,
+				DBDFE1151C2BE9E800E6BA76 /* TestB.h */,
+				DBDFE1161C2BE9E800E6BA76 /* TestB.m */,
+			);
+			path = tt;
 			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
@@ -509,6 +536,7 @@
 				TargetAttributes = {
 					DB2A00131C213D58006D9684 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = M7R5TQ8AQY;
 					};
 					DB2A002C1C213D59006D9684 = {
 						CreatedOnToolsVersion = 7.2;
@@ -578,6 +606,9 @@
 				DB2A001F1C213D58006D9684 /* ViewController.m in Sources */,
 				DB2A001C1C213D58006D9684 /* AppDelegate.m in Sources */,
 				DB16487B1C24081600F79411 /* RootNavigationController.m in Sources */,
+				DBDFE1171C2BE9E800E6BA76 /* TestB.m in Sources */,
+				DBDFE1141C2BE9C600E6BA76 /* TestA.m in Sources */,
+				DBDFE10F1C2BE87000E6BA76 /* Test.m in Sources */,
 				DB2A00191C213D58006D9684 /* main.m in Sources */,
 				74EE55FD1C282B31003C9F73 /* VideoFileParser.m in Sources */,
 				DB5BB65A1C2282A900BBDC9E /* CPUReporter.m in Sources */,
@@ -723,13 +754,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = SampleBufferDisplay/SampleBuffer.pch;
 				INFOPLIST_FILE = SampleBufferDisplay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yy.H264;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d2a4ac45-b3d7-483c-9965-b352d55724e7";
+				PROVISIONING_PROFILE = "02c4a2d7-c880-40d8-912a-e99287d346e5";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -738,13 +770,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = SampleBufferDisplay/SampleBuffer.pch;
 				INFOPLIST_FILE = SampleBufferDisplay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yy.H264;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d2a4ac45-b3d7-483c-9965-b352d55724e7";
+				PROVISIONING_PROFILE = "02c4a2d7-c880-40d8-912a-e99287d346e5";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -10,6 +10,9 @@
 #import "VideoCapturer.h"
 #import "CPUReporter.h"
 #import "VideoFileParser.h"
+#import "Test.h"
+#import "TestA.h"
+#import "TestB.h"
 
 @interface ViewController ()<h264EncoderDelegate>
 
@@ -88,6 +91,13 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"h264"];
     [parese open:path];
     [parese nextPacket];
+    
+    
+    Test* t = [[Test alloc] init];
+    TestA* ta = [[TestA alloc] init];
+    t.obj = ta;
+    
+    
 }
 
 

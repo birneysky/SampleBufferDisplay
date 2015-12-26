@@ -12,8 +12,6 @@
 
 @interface H264Encoder ()
 
-
-
 @end
 
 @implementation H264Encoder

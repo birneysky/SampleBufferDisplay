@@ -61,10 +61,11 @@ const uint8_t KStartCode[4] = {0, 0, 0, 1};
         [self.fileHandeler seekToFileOffset:curOffset];
         NSData* tempData = [self.fileHandeler readDataOfLength:4];
         if (0 == memcmp(tempData.bytes, KStartCode, 4)) {
-            DebugLog(@"temp Data %@",tempData);
+            //DebugLog(@"temp Data %@",tempData);
             [self.fileHandeler seekToFileOffset:prevStartOffet];
-            NSData* data = [self.fileHandeler readDataOfLength:curOffset - prevStartOffet];
-            [self.array addObject:data];
+            NSUInteger length = (NSUInteger)(curOffset - prevStartOffet);
+            NSData* data = [self.fileHandeler readDataOfLength:length];
+            //[self.array addObject:data];
             prevStartOffet = curOffset;
         }
         curOffset ++;
