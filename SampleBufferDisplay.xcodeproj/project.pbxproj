@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		74B727AD1C2FA3430036C993 /* VideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B727AC1C2FA3430036C993 /* VideoPlayer.m */; };
+		74B727B01C2FA95D0036C993 /* PreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B727AF1C2FA95D0036C993 /* PreView.m */; };
 		74EE55FD1C282B31003C9F73 /* VideoFileParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 74EE55FC1C282B31003C9F73 /* VideoFileParser.m */; };
 		74EE56091C282C6A003C9F73 /* mtv.h264 in Resources */ = {isa = PBXBuildFile; fileRef = 74EE56061C282C6A003C9F73 /* mtv.h264 */; };
 		74EE560A1C282C6A003C9F73 /* test.h264 in Resources */ = {isa = PBXBuildFile; fileRef = 74EE56071C282C6A003C9F73 /* test.h264 */; };
@@ -46,6 +48,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		74B727AB1C2FA3430036C993 /* VideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPlayer.h; sourceTree = "<group>"; };
+		74B727AC1C2FA3430036C993 /* VideoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayer.m; sourceTree = "<group>"; };
+		74B727AE1C2FA95D0036C993 /* PreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreView.h; sourceTree = "<group>"; };
+		74B727AF1C2FA95D0036C993 /* PreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreView.m; sourceTree = "<group>"; };
 		74EE55FB1C282B31003C9F73 /* VideoFileParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoFileParser.h; sourceTree = "<group>"; };
 		74EE55FC1C282B31003C9F73 /* VideoFileParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoFileParser.m; sourceTree = "<group>"; };
 		74EE56061C282C6A003C9F73 /* mtv.h264 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mtv.h264; sourceTree = "<group>"; };
@@ -192,6 +198,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		74B727AA1C2FA0930036C993 /* Viewes */ = {
+			isa = PBXGroup;
+			children = (
+				74B727AB1C2FA3430036C993 /* VideoPlayer.h */,
+				74B727AC1C2FA3430036C993 /* VideoPlayer.m */,
+				74B727AE1C2FA95D0036C993 /* PreView.h */,
+				74B727AF1C2FA95D0036C993 /* PreView.m */,
+			);
+			path = Viewes;
+			sourceTree = SOURCE_ROOT;
+		};
 		74EE56051C282C6A003C9F73 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,6 +410,7 @@
 		DB2A00161C213D58006D9684 /* SampleBufferDisplay */ = {
 			isa = PBXGroup;
 			children = (
+				74B727AA1C2FA0930036C993 /* Viewes */,
 				DBDFE10A1C2BE7C300E6BA76 /* tt */,
 				74EE56051C282C6A003C9F73 /* Resource */,
 				DB16481D1C23E04E00F79411 /* VideoCodec */,
@@ -611,9 +629,11 @@
 				DBDFE10F1C2BE87000E6BA76 /* Test.m in Sources */,
 				DB2A00191C213D58006D9684 /* main.m in Sources */,
 				74EE55FD1C282B31003C9F73 /* VideoFileParser.m in Sources */,
+				74B727AD1C2FA3430036C993 /* VideoPlayer.m in Sources */,
 				DB5BB65A1C2282A900BBDC9E /* CPUReporter.m in Sources */,
 				DB2A004D1C213FCA006D9684 /* VideoCapturer.m in Sources */,
 				DB2A00511C216E0E006D9684 /* H264Encoder.m in Sources */,
+				74B727B01C2FA95D0036C993 /* PreView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -761,7 +781,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yy.H264;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "02c4a2d7-c880-40d8-912a-e99287d346e5";
+				PROVISIONING_PROFILE = "d2a4ac45-b3d7-483c-9965-b352d55724e7";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -777,7 +797,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yy.H264;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "02c4a2d7-c880-40d8-912a-e99287d346e5";
+				PROVISIONING_PROFILE = "d2a4ac45-b3d7-483c-9965-b352d55724e7";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -49,7 +49,7 @@
 {
     if (!_previewLayer) {
         _previewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSessionWithNoConnection:self.session];
-        _previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+        _previewLayer.videoGravity = AVLayerVideoGravityResizeAspect;
         _previewLayer.backgroundColor = [UIColor blackColor].CGColor;
     }
     return _previewLayer;
@@ -100,7 +100,7 @@
     }
     
     AVCaptureConnection* connection =[dataOutput connectionWithMediaType:AVMediaTypeVideo];
-    connection.videoOrientation = AVCaptureVideoOrientationLandscapeRight;
+    connection.videoOrientation = AVCaptureVideoOrientationPortrait;
     if ([captureDevice.activeFormat isVideoStabilizationModeSupported:AVCaptureVideoStabilizationModeCinematic]) {
         [connection setPreferredVideoStabilizationMode:AVCaptureVideoStabilizationModeCinematic];
     }else if([captureDevice.activeFormat isVideoStabilizationModeSupported:AVCaptureVideoStabilizationModeAuto]){
@@ -144,7 +144,7 @@
         return CGSizeMake(352, 288);
     }
     else if ([self.sessionPreset isEqualToString:AVCaptureSessionPreset640x480]){
-        return CGSizeMake(640, 480);
+        return CGSizeMake(480, 640);
     }
     else if ([self.sessionPreset isEqualToString:AVCaptureSessionPresetiFrame1280x720]){
         return CGSizeMake(1280, 720);

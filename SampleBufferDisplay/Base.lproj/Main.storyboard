@@ -55,7 +55,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="UAd-4x-eTe"/>
                                 </items>
                             </toolbar>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TMY-kW-F3t">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TMY-kW-F3t" customClass="PreView">
                                 <rect key="frame" x="200" y="95" width="200" height="200"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
@@ -65,7 +65,7 @@
                                     <rect key="frame" x="28" y="72" width="367" height="476"/>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uet-v1-P0l">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uet-v1-P0l" customClass="VideoPlayer">
                                 <rect key="frame" x="200" y="311" width="200" height="200"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
@@ -203,7 +203,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="captureView" destination="TMY-kW-F3t" id="Ppj-dy-FBK"/>
                         <outlet property="cpuUseageLabel" destination="y80-bs-oIk" id="VgL-ZX-Rbi"/>
+                        <outlet property="playView" destination="uet-v1-P0l" id="Shc-yc-oUQ"/>
                         <outlet property="resolutionSegment" destination="fEQ-ZM-8O3" id="g6e-ah-AEv"/>
                     </connections>
                 </viewController>

@@ -13,6 +13,8 @@
 #import "Test.h"
 #import "TestA.h"
 #import "TestB.h"
+#import "VideoPlayer.h"
+#import "PreView.h"
 
 @interface ViewController ()<h264EncoderDelegate>
 
@@ -23,10 +25,9 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *cpuUseageLabel;
 
-@property (nonatomic,strong) AVSampleBufferDisplayLayer* sampleLayer;
+@property (weak, nonatomic) IBOutlet PreView *captureView;
 
-
-
+@property (weak, nonatomic) IBOutlet VideoPlayer *playView;
 @end
 
 @implementation ViewController
@@ -37,7 +38,7 @@
 - (VideoCapturer*)capture
 {
     if (!_capture) {
-        _capture = [[VideoCapturer alloc] initWithSessionPreset:AVCaptureSessionPreset352x288];
+        _capture = [[VideoCapturer alloc] initWithSessionPreset:AVCaptureSessionPreset640x480];
     }
     return _capture;
 }
@@ -52,15 +53,7 @@
     return _reporter;
 }
 
-- (AVSampleBufferDisplayLayer*)sampleLayer
-{
-    if (!_sampleLayer) {
-        _sampleLayer = [[AVSampleBufferDisplayLayer alloc] init];
-        _sampleLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
-        _sampleLayer.backgroundColor = [UIColor blackColor].CGColor;
-    }
-    return _sampleLayer;
-}
+
 
 
 
@@ -69,7 +62,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    self.capture.previewLayer.frame = CGRectMake(20, 70, 352, 288);
+    //self.capture.previewLayer.frame = CGRectMake(20, 70, 352, 288);
+    self.captureView.displayLayer = self.capture.previewLayer;
     //[self.view.layer addSublayer:self.capture.previewLayer];
     
      //[[UIApplication sharedApplication].keyWindow addSubview:self.view];
@@ -78,10 +72,11 @@
     
    
     
-    CGRect rect = self.capture.previewLayer.frame;
-    //CGPoint center = self.capture.previewLayer
-    self.sampleLayer.frame = CGRectMake(100, rect.origin.y + rect.size.height + 10, 288, 352);
-    self.sampleLayer.transform = CATransform3DMakeRotation(M_PI / 2, 0, 0, 1);;
+//    CGRect rect = self.capture.previewLayer.frame;
+//    //CGPoint center = self.capture.previewLayer
+//    self.sampleLayer.frame = CGRectMake(100, rect.origin.y + rect.size.height + 10, 288, 352);
+//    self.sampleLayer.transform = CATransform3DMakeRotation(M_PI / 2, 0, 0, 1);
+    
     //[self.view.layer addSublayer:self.sampleLayer];
     /*第一个参数是旋转角度，后面三个参数形成一个围绕其旋转的向量，起点位置由UIView的center属性标识。
      在这里需要说明的是在3D变换的时候，如果是变换的向量和屏幕垂直，那么就会相当于2D的旋转变化。如果不是垂直的，系统会现将整个画面调整到与这个向量垂直（没有动画），再进行旋转。所以会形成一个跳跃，破坏动画的连贯。
@@ -132,7 +127,7 @@
     //[self.capture start];
     //[self.reporter start];
     //[self.sampleLayer performSelector:@selector(flush) withObject:nil afterDelay:2];
-    [self.sampleLayer flushAndRemoveImage];
+    [self.playView.displayLayer flushAndRemoveImage];
     [self.capture startSend];
 }
 
@@ -181,7 +176,7 @@
 #pragma mark - *** h264EncoderDelegate ***
 - (void)didEncodeSampleBuffer:(CMSampleBufferRef)sampleBuffer
 {
-    [self.sampleLayer enqueueSampleBuffer:sampleBuffer];
+    [self.playView.displayLayer enqueueSampleBuffer:sampleBuffer];
 }
 
 
