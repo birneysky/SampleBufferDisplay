@@ -43,7 +43,7 @@
         VTSessionSetProperty(_encodeSession, kVTCompressionPropertyKey_RealTime, kCFBooleanTrue);
         VTSessionSetProperty(_encodeSession, kVTCompressionPropertyKey_AverageBitRate, (__bridge CFTypeRef _Nonnull)(@(1024 * 1024)));
         VTSessionSetProperty(_encodeSession, kVTCompressionPropertyKey_ProfileLevel, kVTProfileLevel_H264_Baseline_AutoLevel);
-        VTSessionSetProperty(_encodeSession, kVTCompressionPropertyKey_MaxH264SliceBytes, (__bridge CFTypeRef _Nonnull)(@(1400)));
+        VTSessionSetProperty(_encodeSession, kVTCompressionPropertyKey_MaxH264SliceBytes, (__bridge CFTypeRef _Nonnull)(@(256)));
         VTCompressionSessionPrepareToEncodeFrames(_encodeSession);
     }
 }
