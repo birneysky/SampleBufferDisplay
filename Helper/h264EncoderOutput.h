@@ -13,7 +13,7 @@
 
 - (void) didEncodedSps:(NSData*)sps pps:(NSData*)pps;
 - (void) didEncodedData:(NSData*)data isKeyFrame:(BOOL)isKey;
-- (void) didOneFrameFinish;
+- (void) didOneFrameFinish:(BOOL) isKey;
 
 @end
 

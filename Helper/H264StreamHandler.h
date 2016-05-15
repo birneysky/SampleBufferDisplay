@@ -24,6 +24,6 @@
 
 - (void)didEncodedData:(NSData *)data isKeyFrame:(BOOL)isKey;
 
-- (void)didOneFrameFinish;
+- (void)didOneFrameFinish:(BOOL) isKey;
 
 @end

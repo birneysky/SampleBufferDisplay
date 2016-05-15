@@ -43,7 +43,7 @@
         VTSessionSetProperty(_encodeSession, kVTCompressionPropertyKey_RealTime, kCFBooleanTrue);
         VTSessionSetProperty(_encodeSession, kVTCompressionPropertyKey_AverageBitRate, (__bridge CFTypeRef _Nonnull)(@(1024 * 1024)));
         VTSessionSetProperty(_encodeSession, kVTCompressionPropertyKey_ProfileLevel, kVTProfileLevel_H264_Baseline_AutoLevel);
-        VTSessionSetProperty(_encodeSession, kVTCompressionPropertyKey_MaxH264SliceBytes, (__bridge CFTypeRef _Nonnull)(@(256)));
+        VTSessionSetProperty(_encodeSession, kVTCompressionPropertyKey_MaxH264SliceBytes, (__bridge CFTypeRef _Nonnull)(@(256)));//这个参数似乎没什么卵用，设置了跟没设置一样的
         VTCompressionSessionPrepareToEncodeFrames(_encodeSession);
     }
 }
@@ -122,6 +122,13 @@ void videoCompressionOutputCallback(
         }
     }
     
+    /*BlockBuffer 是由多个“数据长度+数据”这样的数据（Slices）拼接成的，
+    其中数据长度占四个字节，并且用网络字节序表示。数据是没有起始码的h264流.
+    返回的SampleBuffer 是编码后一整帧的数据。
+    也就是说，如果把一帧中的多个slice，使用“数据+长度”的方式拼接起来就可以创建出代表一整帧的数据的SampleBuffer
+     这样就可以使用硬件解码了，当然也可以把这个SampleBuffer丢入到AVSampleBufferDisplayLayer图层的队列中，
+     由图层完成解码显示的工作
+     */
     CMBlockBufferRef dataBuffer = CMSampleBufferGetDataBuffer(sampleBuffer);
     size_t length, totalLength;
     char *dataPointer;
@@ -146,8 +153,8 @@ void videoCompressionOutputCallback(
         }
         
     }
-    if ([encoder.delegate respondsToSelector:@selector(didOneFrameFinish)]) {
-       [encoder.delegate didOneFrameFinish]; 
+    if ([encoder.delegate respondsToSelector:@selector(didOneFrameFinish:)]) {
+        [encoder.delegate didOneFrameFinish:keyframe];
     }
     
 }

@@ -9,7 +9,6 @@
 #import "H264StreamHandler.h"
 
 @interface H264StreamHandler ()
-@property (nonatomic,strong) NSMutableArray* simpleSizeArray;
 @end
 
 @implementation H264StreamHandler
@@ -21,13 +20,7 @@
 }
 
 #pragma mark - *** Properties ***
-- (NSMutableArray*) simpleSizeArray
-{
-    if (!_simpleSizeArray) {
-        _simpleSizeArray = [[NSMutableArray alloc] init];
-    }
-    return _simpleSizeArray;
-}
+
 
 #pragma mark - *** h264EncoderOutput***
 - (void)didEncodedSps:(NSData *)sps pps:(NSData *)pps
@@ -53,17 +46,18 @@
     
     size_t blockOffset = CMBlockBufferGetDataLength(_blockBuffer);
     NSUInteger dataLength = data.length;
-
+    /*
+        将多个slice 数据拼接，为创建CMSampleBufferRef做准备
+     */
     OSStatus status = CMBlockBufferAppendMemoryBlock(_blockBuffer, (void*)data.bytes,
                                             dataLength, // Add 1 for the offset we decremented
                                             kCFAllocatorDefault,
                                             NULL, 0, dataLength, 0);
     _bufferSize += dataLength;
-    [self.simpleSizeArray addObject:@(dataLength)];
 
 }
 
-- (void)didOneFrameFinish
+- (void)didOneFrameFinish:(BOOL) isKey
 {
     CMSampleBufferRef sampleBuffer = NULL;
     OSStatus status = CMSampleBufferCreate(kCFAllocatorDefault, _blockBuffer, YES, NULL, NULL, _decoderFormatDescription, 1, 0, NULL/*timeArray*/, 0, NULL, &sampleBuffer);
@@ -76,9 +70,8 @@
     }
     CFRelease(_blockBuffer);
     //CFRelease(sampleBuffer);
-    
-    
     _blockBuffer = NULL;
+    NSLog(@"==> didOneFrameFinish keyFrame %d size :%lu",isKey,_bufferSize);
 }
 
 @end
