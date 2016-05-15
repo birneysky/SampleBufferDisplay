@@ -2,7 +2,7 @@
 //  CpuReporter.h
 //  SampleBufferDisplay
 //
-//  Created by zhangguang on 15/12/17.
+//  Created by birneysky on 15/12/17.
 //  Copyright © 2015年 com.v2tech. All rights reserved.
 //
 

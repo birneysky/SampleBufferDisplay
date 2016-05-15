@@ -2,7 +2,7 @@
 //  ViewController.m
 //  SampleBufferDisplay
 //
-//  Created by zhangguang on 15/12/16.
+//  Created by birneysky on 15/12/16.
 //  Copyright © 2015年 com.v2tech. All rights reserved.
 //
 
@@ -13,7 +13,7 @@
 #import "VideoPlayer.h"
 #import "PreView.h"
 
-@interface ViewController ()<h264EncoderDelegate>
+@interface ViewController () <SampleBufferDisplayDelegate>
 
 @property (nonatomic,strong) VideoCapturer* capture;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *resolutionSegment;
@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet PreView *captureView;
 
 @property (weak, nonatomic) IBOutlet VideoPlayer *playView;
+
 @end
 
 @implementation ViewController
@@ -49,7 +50,6 @@
     }
     return _reporter;
 }
-
 
 
 
@@ -80,7 +80,8 @@
      所以如果有这类变换的情况请尽量考虑动画的连贯，现将view动画变换到和向量垂直，然后进行旋转，最后再恢复和屏幕平行。
      CATransform3DMakeRotation 总是按最短路径来选择，当顺时针和逆时针的路径相同时，使用逆时针。若需要使其按顺时针旋转，用 CAKeyframeAnimation 并在在顺时针路径上增加几个关键点即可。*/
     
-    self.capture.encoder.delegate = self;
+    //self.capture.encoder.delegate = self;
+    self.capture.encoder.handler.dispalyDelegate = self;
     [self.reporter start];
     
     
@@ -164,6 +165,11 @@
     }
 }
 
+- (void)displayEncodedSampleBuffer:(CMSampleBufferRef)sample
+{
+    [self.playView.displayLayer enqueueSampleBuffer:sample];
+}
+
 #pragma mark - *** h264EncoderDelegate ***
 - (void)didEncodeSampleBuffer:(CMSampleBufferRef)sampleBuffer
 {
@@ -171,10 +177,10 @@
 }
 
 
-//- (BOOL)shouldAutorotate
-//{
-//    return YES;
-//}
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
 
 
 //

@@ -33,7 +33,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="lhb-PC-719"/>
                                     <barButtonItem style="plain" id="Sk1-dA-lEt">
                                         <view key="customView" contentMode="scaleToFill" id="hnR-Jg-qzs">
-                                            <rect key="frame" x="180" y="6" width="240" height="33"/>
+                                            <rect key="frame" x="180" y="5.5" width="240" height="33"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y80-bs-oIk">
@@ -182,31 +182,11 @@
                                 <action selector="leftButtomItemClicked:" destination="BYZ-38-t0r" id="K8G-vj-AqN"/>
                             </connections>
                         </barButtonItem>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="fEQ-ZM-8O3">
-                            <rect key="frame" x="151" y="6" width="299" height="33"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="low"/>
-                                <segment title="320*240"/>
-                                <segment title="640*480"/>
-                                <segment title="1280*720"/>
-                            </segments>
-                            <connections>
-                                <action selector="SegmentedControlClicked:" destination="BYZ-38-t0r" eventType="valueChanged" id="3a6-Ko-GGM"/>
-                            </connections>
-                        </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" id="9qj-0R-2dJ">
-                            <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="EsF-OD-xcP">
-                                <rect key="frame" x="531" y="6" width="51" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </switch>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="captureView" destination="TMY-kW-F3t" id="Ppj-dy-FBK"/>
                         <outlet property="cpuUseageLabel" destination="y80-bs-oIk" id="VgL-ZX-Rbi"/>
                         <outlet property="playView" destination="uet-v1-P0l" id="Shc-yc-oUQ"/>
-                        <outlet property="resolutionSegment" destination="fEQ-ZM-8O3" id="g6e-ah-AEv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

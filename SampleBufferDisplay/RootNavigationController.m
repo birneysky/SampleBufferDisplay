@@ -2,7 +2,7 @@
 //  RootNavigationController.m
 //  SampleBufferDisplay
 //
-//  Created by zhangguang on 15/12/18.
+//  Created by birneysky on 15/12/18.
 //  Copyright © 2015年 com.v2tech. All rights reserved.
 //
 
@@ -68,10 +68,10 @@
 }
 */
 
-- (BOOL)shouldAutorotate
-{
-    return self.topViewController.shouldAutorotate;
-}
+//- (BOOL)shouldAutorotate
+//{
+//    return self.topViewController.shouldAutorotate;
+//}
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
 {

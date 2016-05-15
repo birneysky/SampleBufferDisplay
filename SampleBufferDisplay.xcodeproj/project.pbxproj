@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		742591F41CE83DE100178E5C /* H264StreamHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 742591F31CE83DE100178E5C /* H264StreamHandler.m */; };
 		74B727AD1C2FA3430036C993 /* VideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B727AC1C2FA3430036C993 /* VideoPlayer.m */; };
 		74B727B01C2FA95D0036C993 /* PreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B727AF1C2FA95D0036C993 /* PreView.m */; };
 		74EE55FD1C282B31003C9F73 /* VideoFileParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 74EE55FC1C282B31003C9F73 /* VideoFileParser.m */; };
@@ -45,6 +46,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		742591F21CE83DE100178E5C /* H264StreamHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = H264StreamHandler.h; sourceTree = "<group>"; };
+		742591F31CE83DE100178E5C /* H264StreamHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = H264StreamHandler.m; sourceTree = "<group>"; };
+		742591F51CE840B100178E5C /* h264EncoderOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = h264EncoderOutput.h; sourceTree = "<group>"; };
 		74B727AB1C2FA3430036C993 /* VideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPlayer.h; sourceTree = "<group>"; };
 		74B727AC1C2FA3430036C993 /* VideoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayer.m; sourceTree = "<group>"; };
 		74B727AE1C2FA95D0036C993 /* PreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreView.h; sourceTree = "<group>"; };
@@ -206,6 +210,9 @@
 				DB5BB6591C2282A900BBDC9E /* CPUReporter.m */,
 				74EE55FB1C282B31003C9F73 /* VideoFileParser.h */,
 				74EE55FC1C282B31003C9F73 /* VideoFileParser.m */,
+				742591F21CE83DE100178E5C /* H264StreamHandler.h */,
+				742591F31CE83DE100178E5C /* H264StreamHandler.m */,
+				742591F51CE840B100178E5C /* h264EncoderOutput.h */,
 			);
 			path = Helper;
 			sourceTree = SOURCE_ROOT;
@@ -351,6 +358,7 @@
 				74B727AD1C2FA3430036C993 /* VideoPlayer.m in Sources */,
 				DB5BB65A1C2282A900BBDC9E /* CPUReporter.m in Sources */,
 				DB2A004D1C213FCA006D9684 /* VideoCapturer.m in Sources */,
+				742591F41CE83DE100178E5C /* H264StreamHandler.m in Sources */,
 				DB2A00511C216E0E006D9684 /* H264Encoder.m in Sources */,
 				74B727B01C2FA95D0036C993 /* PreView.m in Sources */,
 			);
@@ -500,8 +508,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.v2tech.commbarEnt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e4c6fe16-2704-499b-b8b4-04db72022fd9";
-				TARGETED_DEVICE_FAMILY = 1;
+				PROVISIONING_PROFILE = "39fef62a-4fe4-4b0b-a98a-a67306900e60";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -516,8 +524,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.v2tech.commbarEnt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e4c6fe16-2704-499b-b8b4-04db72022fd9";
-				TARGETED_DEVICE_FAMILY = 1;
+				PROVISIONING_PROFILE = "39fef62a-4fe4-4b0b-a98a-a67306900e60";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
