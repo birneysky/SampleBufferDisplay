@@ -101,11 +101,11 @@
     
     AVCaptureConnection* connection =[dataOutput connectionWithMediaType:AVMediaTypeVideo];
     connection.videoOrientation = AVCaptureVideoOrientationPortrait;
-//    if ([captureDevice.activeFormat isVideoStabilizationModeSupported:AVCaptureVideoStabilizationModeCinematic]) {
-//        [connection setPreferredVideoStabilizationMode:AVCaptureVideoStabilizationModeCinematic];
-//    }else if([captureDevice.activeFormat isVideoStabilizationModeSupported:AVCaptureVideoStabilizationModeAuto]){
-//        [connection setPreferredVideoStabilizationMode:AVCaptureVideoStabilizationModeAuto];
-//    }
+    if ([captureDevice.activeFormat isVideoStabilizationModeSupported:AVCaptureVideoStabilizationModeCinematic]) {
+        [connection setPreferredVideoStabilizationMode:AVCaptureVideoStabilizationModeCinematic];
+    }else if([captureDevice.activeFormat isVideoStabilizationModeSupported:AVCaptureVideoStabilizationModeAuto]){
+        [connection setPreferredVideoStabilizationMode:AVCaptureVideoStabilizationModeAuto];
+    }
     //connection.videoMirrored = YES;
     self.session.sessionPreset = self.sessionPreset;
     [self.session startRunning];
