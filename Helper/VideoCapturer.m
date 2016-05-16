@@ -79,6 +79,8 @@
         DebugLog(@" start failed ,sessionPreset is %@",self.sessionPreset);
         return NO;
     }
+    
+    self.session.sessionPreset = self.sessionPreset;
     NSError* error;
     AVCaptureDevice* captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     AVCaptureDeviceInput* inputDevice = [AVCaptureDeviceInput deviceInputWithDevice:captureDevice error:&error];
@@ -93,21 +95,27 @@
     
     AVCaptureVideoDataOutput* dataOutput =  [[AVCaptureVideoDataOutput alloc] init];
     dataOutput.videoSettings = @{(id)kCVPixelBufferPixelFormatTypeKey:
-                                     @(kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange)};
+                                     @(kCVPixelFormatType_32BGRA)};
     [dataOutput setSampleBufferDelegate:self queue:self.dataOutputQueue];
     if ([self.session canAddOutput:dataOutput]) {
         [self.session addOutput:dataOutput];
     }
     
+    [captureDevice lockForConfiguration:nil];
+    captureDevice.activeVideoMinFrameDuration = CMTimeMake(1, 10);
+    captureDevice.activeVideoMaxFrameDuration = CMTimeMake(1, 10 + 2);
+    [captureDevice unlockForConfiguration];
+    
     AVCaptureConnection* connection =[dataOutput connectionWithMediaType:AVMediaTypeVideo];
     connection.videoOrientation = AVCaptureVideoOrientationPortrait;
+
     if ([captureDevice.activeFormat isVideoStabilizationModeSupported:AVCaptureVideoStabilizationModeCinematic]) {
         [connection setPreferredVideoStabilizationMode:AVCaptureVideoStabilizationModeCinematic];
     }else if([captureDevice.activeFormat isVideoStabilizationModeSupported:AVCaptureVideoStabilizationModeAuto]){
         [connection setPreferredVideoStabilizationMode:AVCaptureVideoStabilizationModeAuto];
     }
     //connection.videoMirrored = YES;
-    self.session.sessionPreset = self.sessionPreset;
+
     [self.session startRunning];
     return YES;
 }
