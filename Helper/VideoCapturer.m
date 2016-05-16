@@ -92,8 +92,8 @@
     }
     
     AVCaptureVideoDataOutput* dataOutput =  [[AVCaptureVideoDataOutput alloc] init];
-//    dataOutput.videoSettings = @{(id)kCVPixelBufferPixelFormatTypeKey:
-//                                     @(kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange)};
+    dataOutput.videoSettings = @{(id)kCVPixelBufferPixelFormatTypeKey:
+                                     @(kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange)};
     [dataOutput setSampleBufferDelegate:self queue:self.dataOutputQueue];
     if ([self.session canAddOutput:dataOutput]) {
         [self.session addOutput:dataOutput];
