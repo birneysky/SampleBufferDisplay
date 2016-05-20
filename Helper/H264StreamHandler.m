@@ -49,6 +49,8 @@
     /*
         将多个slice 数据拼接，为创建CMSampleBufferRef做准备
      */
+    uint8_t* buffer =  data.bytes;
+    int nalType = buffer[4]&0x1f;
     OSStatus status = CMBlockBufferAppendMemoryBlock(_blockBuffer, (void*)data.bytes,
                                             dataLength, // Add 1 for the offset we decremented
                                             kCFAllocatorDefault,
@@ -71,7 +73,7 @@
     CFRelease(_blockBuffer);
     //CFRelease(sampleBuffer);
     _blockBuffer = NULL;
-    NSLog(@"==> didOneFrameFinish keyFrame %d size :%lu",isKey,_bufferSize);
+    //NSLog(@"==> didOneFrameFinish keyFrame %d size :%lu",isKey,_bufferSize);
 }
 
 @end

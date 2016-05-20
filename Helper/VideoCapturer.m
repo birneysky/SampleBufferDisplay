@@ -156,7 +156,11 @@
     }
     else if ([self.sessionPreset isEqualToString:AVCaptureSessionPresetiFrame1280x720]){
         return CGSizeMake(1280, 720);
-    }else{
+    }
+    else if ([self.sessionPreset isEqualToString:AVCaptureSessionPreset1920x1080]){
+        return CGSizeMake(1920, 1080);
+    }
+    else{
         DebugLog(@"capture size not support preset = %@",self.sessionPreset);
         return CGSizeZero;
     }

@@ -36,7 +36,7 @@
 - (VideoCapturer*)capture
 {
     if (!_capture) {
-        _capture = [[VideoCapturer alloc] initWithSessionPreset:AVCaptureSessionPreset640x480];
+        _capture = [[VideoCapturer alloc] initWithSessionPreset:AVCaptureSessionPresetiFrame1280x720];
     }
     return _capture;
 }

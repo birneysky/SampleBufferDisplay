@@ -18,6 +18,7 @@
 @protected
     VTCompressionSessionRef _encodeSession;
     H264StreamHandler* _handler;
+     int  frameCount;
 }
 
 #pragma mark - *** Initializers ***
@@ -41,11 +42,13 @@
     else
     {
         VTSessionSetProperty(_encodeSession, kVTCompressionPropertyKey_RealTime, kCFBooleanTrue);
-        VTSessionSetProperty(_encodeSession, kVTCompressionPropertyKey_AverageBitRate, (__bridge CFTypeRef _Nonnull)(@(1024 * 1024)));
-        VTSessionSetProperty(_encodeSession, kVTCompressionPropertyKey_ProfileLevel, kVTProfileLevel_H264_Baseline_AutoLevel);
+        VTSessionSetProperty(_encodeSession, kVTCompressionPropertyKey_AverageBitRate, (__bridge CFTypeRef _Nonnull)(@(256 * 1024)));
+         VTSessionSetProperty(_encodeSession, kVTCompressionPropertyKey_ProfileLevel, kVTProfileLevel_H264_Main_AutoLevel);
         VTSessionSetProperty(_encodeSession, kVTCompressionPropertyKey_MaxH264SliceBytes, (__bridge CFTypeRef _Nonnull)(@(256)));//这个参数似乎没什么卵用，设置了跟没设置一样的
         VTCompressionSessionPrepareToEncodeFrames(_encodeSession);
     }
+    
+    frameCount = 0;
 }
 
 - (BOOL)encode:(CMSampleBufferRef)sampleBuffer
@@ -56,6 +59,11 @@
     }
     OSStatus status = 0;
     VTEncodeInfoFlags flags;
+    frameCount++;
+//    CVImageBufferRef imageBuffer = (CVImageBufferRef)CMSampleBufferGetImageBuffer(sampleBuffer);
+//    CMTime presentationTimeStamp = CMTimeMake(frameCount, 3000);
+//    status = VTCompressionSessionEncodeFrame(_encodeSession, imageBuffer, presentationTimeStamp, kCMTimeInvalid, NULL, NULL, &flags);
+
     CVPixelBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
     CMTime presentationTimeStamp = CMSampleBufferGetOutputPresentationTimeStamp(sampleBuffer);
     CMTime duration = CMSampleBufferGetOutputDuration(sampleBuffer);
@@ -145,7 +153,7 @@ void videoCompressionOutputCallback(
             
             // Convert the length value from Big-endian to Little-endian
             NALUnitLength = CFSwapInt32BigToHost(NALUnitLength);
-            
+            NSLog(@"keyFrame %d, size %d",keyframe,NALUnitLength);
             NSData* data = [[NSData alloc] initWithBytesNoCopy:(dataPointer + bufferOffset ) length:NALUnitLength + AVCCHeaderLength freeWhenDone:NO];
             [encoder.delegate didEncodedData:data isKeyFrame:keyframe];
             //[dataArray addObject:data];
@@ -156,6 +164,7 @@ void videoCompressionOutputCallback(
     if ([encoder.delegate respondsToSelector:@selector(didOneFrameFinish:)]) {
         [encoder.delegate didOneFrameFinish:keyframe];
     }
+    NSLog(@"frame end");
     
 }
 
